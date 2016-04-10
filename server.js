@@ -1,12 +1,15 @@
 'use strict';
 
 var http = require('http');
+var url = require('url');
 
 exports.startServer = function (port) {
 
-    http.createServer((req, res) => {
+    var processRequest = (req, res) => {
 
-        console.log('request received.');
+        var pathname = url.parse(req.url).pathname;
+        console.log("Request for", pathname, "received.");
+
 
         res.writeHead(200, {
             "Content-Type": "text/plain"
@@ -14,8 +17,9 @@ exports.startServer = function (port) {
 
         res.write('Hello World');
         res.end();
+    };
 
-    }).listen(port);
+    http.createServer(processRequest).listen(port);
 
     console.log('Server Started Success at Port', port, '!');
 };
