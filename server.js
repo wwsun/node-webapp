@@ -2,20 +2,21 @@
 
 var http = require('http');
 
-http.createServer((req, res) => {
-    
-    // console.log('req',req);
-    // console.log('res',res);
+exports.startServer = function (port) {
 
-    console.log('request received.');
-    
-    res.writeHead(200, {
-        "Content-Type": "text/plain"
-    });
-    
-    res.write('Hello World');
-    res.end();
-    
-}).listen(8888);
+    http.createServer((req, res) => {
 
-console.log('Server Started Success!');
+        console.log('request received.');
+
+        res.writeHead(200, {
+            "Content-Type": "text/plain"
+        });
+
+        res.write('Hello World');
+        res.end();
+
+    }).listen(port);
+
+    console.log('Server Started Success at Port', port, '!');
+};
+
