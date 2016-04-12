@@ -19,5 +19,8 @@
   "homepage": "https://github.com/wwsun/node-webapp#readme",
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
+  },
+  "dependencies": {
+    "formidable": "^1.0.17"
   }
 }
