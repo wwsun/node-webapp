@@ -6,6 +6,6 @@ var handle = {};
 handle['/'] = controller.start;
 handle['/start'] = controller.start;
 handle['/upload'] = controller.upload;
-
+handle['/show'] = controller.show;
 
 server.startServer(4000, router.route, handle);
